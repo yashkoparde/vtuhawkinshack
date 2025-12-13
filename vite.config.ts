@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
 
   return {
-    base: '/vtuhawkinscode/', // required for GitHub Pages
+    base: '/vtuhawkinshack/',
 
     plugins: [react()],
 
