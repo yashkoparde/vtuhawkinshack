@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hawkins Code | Enter the Upside Down</title>
     
-    <!-- Fonts: Inter for body, Oswald for bold headers, Share Tech Mono for code/data -->
-    <!-- Added Merriweather 900 for the Stranger Things title look -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@900&family=Oswald:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -35,9 +35,6 @@
               'flicker': 'flicker 3s infinite',
               'float': 'float 6s ease-in-out infinite',
               'grain': 'grain 8s steps(10) infinite',
-            },
-            backgroundImage: {
-              'noise': "url('https://cdnjs.cloudflare.com/ajax/libs/media-element/5.0.4/noise.png')",
             },
             keyframes: {
               flicker: {
@@ -65,94 +62,19 @@
         },
       }
     </script>
-    <style>
-      body {
-        background-color: #050505;
-        color: #e0e0e0;
-        overflow-x: hidden;
-      }
-      
-      /* Stranger Things Text Stroke Effect */
-      .stranger-text {
-        -webkit-text-stroke: 1.5px #E50914;
-        color: transparent;
-        text-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
-      }
-      
-      .stranger-text-filled {
-        color: #E50914;
-        text-shadow: 0 0 15px rgba(229, 9, 20, 0.8), 0 0 30px rgba(229, 9, 20, 0.4);
-      }
 
-      /* Scrollbar Styling */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #000; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #333; 
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #E50914; 
-      }
-
-      /* CRT Scanline Effect */
-      .scanlines {
-        background: linear-gradient(
-          to bottom,
-          rgba(255,255,255,0),
-          rgba(255,255,255,0) 50%,
-          rgba(0,0,0,0.2) 50%,
-          rgba(0,0,0,0.2)
-        );
-        background-size: 100% 4px;
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        pointer-events: none;
-        z-index: 50;
-        opacity: 0.15;
-      }
-
-      /* CRT Vignette */
-      .vignette {
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,0.8) 100%);
-        pointer-events: none;
-        z-index: 51;
-      }
-      
-      /* Noise Overlay */
-      .noise-overlay {
-        position: fixed;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 52;
-        opacity: 0.08;
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
-    "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
-  <body>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body class="bg-void-black text-retro-white overflow-x-hidden">
     <div id="root"></div>
-    <div class="noise-overlay animate-grain"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+
+    <!-- Noise & Scanline Overlays -->
+    <div class="noise-overlay fixed top-[-50%] left-[-50%] w-[200%] h-[200%] opacity-10 z-50 pointer-events-none animate-grain"></div>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+
+    <!-- React entry -->
+    <script type="module" src="./index.tsx"></script>
+  </body>
 </html>
