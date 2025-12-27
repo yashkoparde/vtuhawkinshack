@@ -66,7 +66,7 @@ export const TIMELINE: TimelineEvent[] = [
 
 export const RULES = [
   "No communication with the Upside Down during coding hours.",
-  "Teams of 2-4. Solo operatives allowed but risky.",
+  "Duo Operatives Suggested. Solo operatives allowed but risky.",
   "All code must be submitted before the fourth chime.",
   "Friends don't lie. Plagiarism results in immediate disqualification."
 ];
